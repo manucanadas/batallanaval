@@ -1,6 +1,15 @@
 import React from "react";
 import "../../App.css";
+import GameSection from "../GameSection";
+import Footer from "../Footer";
 
-export default function Play() {
-    return <h1 className="play">PLAY</h1>
+function Play() {
+    return (
+        <>
+        <GameSection />
+        <Footer />
+        </>
+    );
 }
+
+export default Play
