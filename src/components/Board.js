@@ -136,39 +136,42 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
 
-    ships.forEach(ship => ship.addEventListener("mousedown", () => {
-        selectedShipNameWithIndex = this
+    ships.forEach(ship => ship.addEventListener("mousedown", (e) => {
+        selectedShipNameWithIndex = e.target.id
         console.log(selectedShipNameWithIndex)
     }))
 
     function dragStart() {
       draggedShip = this
-      draggedShipLength = draggedShip.length  
+      draggedShipLength = this.childNodes.length  
       console.log(draggedShip)
     }
 
-    function dragOver() {
-    //   e.preventDefault()  
+    function dragOver(e) {
+      e.preventDefault()  
     }
 
-    function dragEnter() {
-    //   e.preventDefault()  
+    function dragEnter(e) {
+      e.preventDefault()  
     }
 
     function dragLeave() {
-      
+      console.log("drag leave")
     }
 
     function dragDrop() {
-    //   let shipNameWithLastId = draggedShip.lastChild.id
-    //   let shipClass = shipNameWithLastId.slice(0, -2)  
-    //   console.log(shipClass)
-    //   let lastShipIndex = parseInt(shipNameWithLastId.substr(-1))
-    //   let shipLastId = lastShipIndex + parseInt(this.dataset.id)
-    //   console.log(shipLastId)
+      let shipNameWithLastId = draggedShip.lastChild.id
+      let shipClass = shipNameWithLastId.slice(0, -2)  
+      console.log(shipClass)
+      let lastShipIndex = parseInt(shipNameWithLastId.substr(-1))
+      let shipLastId = lastShipIndex + parseInt(this.dataset.id)
+      console.log(shipLastId)
 
     //   let selectedShipIndex = parseInt(selectedShipNameWithIndex.substr(-1))
     //   console.log(selectedShipIndex)
+
+    //   shipLastId = shipLastId - selectedShipIndex
+    //   console.log(shipLastId) 
       
     }
 
